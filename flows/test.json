@@ -1,0 +1,602 @@
+[
+  {
+    "id": "51k4oqrSEoi7ho7P_mapU",
+    "schemaId": "alarm-manager",
+    "inputs": [
+      {
+        "inputId": "alarm-selection",
+        "type": "value",
+        "value": "alarma_seguridad"
+      },
+      {
+        "inputId": "cooldown",
+        "type": "value",
+        "value": "10"
+      },
+      {
+        "inputId": "sensitivity",
+        "type": "value",
+        "value": "60"
+      }
+    ],
+    "outputs": [],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "OP7pQNSoHv4X26pigM0_t",
+          "sourceHandle": {
+            "nodeId": "OP7pQNSoHv4X26pigM0_t"
+          },
+          "targetHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "rrfZdPtx5X5Xuw7t_455i",
+          "sourceHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU-1"
+          },
+          "targetHandle": {
+            "nodeId": "rrfZdPtx5X5Xuw7t_455i"
+          }
+        },
+        {
+          "target": "8s9PqfX2mqdq4XhaXuWRJ",
+          "sourceHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU-1"
+          },
+          "targetHandle": {
+            "nodeId": "8s9PqfX2mqdq4XhaXuWRJ"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "8s9PqfX2mqdq4XhaXuWRJ",
+    "schemaId": "notification-on-site",
+    "inputs": [
+      {
+        "inputId": "notification-type",
+        "type": "value",
+        "value": "plc"
+      },
+      {
+        "inputId": "plc-name",
+        "type": "value",
+        "value": "alarma_casco"
+      },
+      {
+        "inputId": "plc-ip",
+        "type": "value",
+        "value": "192.168.0.13"
+      },
+      {
+        "inputId": "plc-port",
+        "type": "value",
+        "value": "5600"
+      },
+      {
+        "inputId": "plc-signal",
+        "type": "value",
+        "value": "4"
+      },
+      {
+        "inputId": "screen-name",
+        "type": "value",
+        "value": "luz"
+      },
+      {
+        "inputId": "screen-video",
+        "type": "value",
+        "value": ""
+      }
+    ],
+    "outputs": [],
+    "nodeType": "onlyTarget",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "51k4oqrSEoi7ho7P_mapU",
+          "sourceHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU-1"
+          },
+          "targetHandle": {
+            "nodeId": "8s9PqfX2mqdq4XhaXuWRJ"
+          }
+        }
+      ],
+      "outputs": []
+    }
+  },
+  {
+    "id": "BVvo-r7xnImcIQNukmxVA",
+    "schemaId": "filter-node",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": "DeteccionesV03"
+      },
+      {
+        "inputId": "input-filter-type",
+        "type": "value",
+        "value": "asociados"
+      },
+      {
+        "inputId": "input-operator",
+        "type": "value",
+        "value": "in"
+      },
+      {
+        "inputId": "input-value",
+        "type": "value",
+        "value": "Casco"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-filtered-detections-pass",
+        "type": "value",
+        "value": "det3"
+      },
+      {
+        "outputId": "output-filtered-detections-fail",
+        "type": "value",
+        "value": "det3_no"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "tznLrHydynUwNttwdKAD5",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "BVvo-r7xnImcIQNukmxVA"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "yuhbpsUAzSxahJ5b-g7LB",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-fail"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections1"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "fmIO3puMcnH9L-RwwzK39",
+    "schemaId": "ai-node",
+    "inputs": [
+      {
+        "inputId": "camera-name",
+        "type": "value",
+        "value": "Camara01"
+      },
+      {
+        "inputId": "class-name",
+        "type": "value",
+        "value": "persona"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "camera_detections",
+        "type": "value",
+        "value": "detecciones_originales"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "Ou6NH_fx9xaFiM_2AQyUO",
+          "sourceHandle": {
+            "nodeId": "Ou6NH_fx9xaFiM_2AQyUO"
+          },
+          "targetHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "XreAA_vo6UhO1TqD9No3n",
+          "sourceHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39-1"
+          },
+          "targetHandle": {
+            "nodeId": "XreAA_vo6UhO1TqD9No3n"
+          }
+        },
+        {
+          "target": "tznLrHydynUwNttwdKAD5",
+          "sourceHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39-1"
+          },
+          "targetHandle": {
+            "nodeId": "tznLrHydynUwNttwdKAD5"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "OP7pQNSoHv4X26pigM0_t",
+    "schemaId": "count-node",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": "DeteccionesV01"
+      },
+      {
+        "inputId": "input-comparator",
+        "type": "value",
+        "value": ">"
+      },
+      {
+        "inputId": "input-threshold",
+        "type": "value",
+        "value": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-alarm-trigger",
+        "type": "value",
+        "value": "True"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "yuhbpsUAzSxahJ5b-g7LB",
+          "sourceHandle": {
+            "nodeId": "output-primary-detections-compliant"
+          },
+          "targetHandle": {
+            "nodeId": "OP7pQNSoHv4X26pigM0_t-entry-1"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "51k4oqrSEoi7ho7P_mapU",
+          "sourceHandle": {
+            "nodeId": "OP7pQNSoHv4X26pigM0_t"
+          },
+          "targetHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "Ou6NH_fx9xaFiM_2AQyUO",
+    "schemaId": "camera-node",
+    "inputs": [
+      {
+        "inputId": "input-camera-name",
+        "type": "value",
+        "value": ""
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-image-name",
+        "type": "value",
+        "value": "uykkuy"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "tQwWfgG2LbI9AAT6D-99h",
+          "sourceHandle": {
+            "nodeId": "tQwWfgG2LbI9AAT6D-99h"
+          },
+          "targetHandle": {
+            "nodeId": "Ou6NH_fx9xaFiM_2AQyUO"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "fmIO3puMcnH9L-RwwzK39",
+          "sourceHandle": {
+            "nodeId": "Ou6NH_fx9xaFiM_2AQyUO"
+          },
+          "targetHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "rrfZdPtx5X5Xuw7t_455i",
+    "schemaId": "notification-off-site",
+    "inputs": [
+      {
+        "inputId": "notification-type",
+        "type": "value",
+        "value": "telegram"
+      },
+      {
+        "inputId": "telegram-phone",
+        "type": "value",
+        "value": "6055411602"
+      },
+      {
+        "inputId": "telegram-message",
+        "type": "value",
+        "value": "ha habido alerta de cascooo"
+      },
+      {
+        "inputId": "telegram-image",
+        "type": "value",
+        "value": "imagen_1"
+      }
+    ],
+    "outputs": [],
+    "nodeType": "onlyTarget",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "51k4oqrSEoi7ho7P_mapU",
+          "sourceHandle": {
+            "nodeId": "51k4oqrSEoi7ho7P_mapU-1"
+          },
+          "targetHandle": {
+            "nodeId": "rrfZdPtx5X5Xuw7t_455i"
+          }
+        }
+      ],
+      "outputs": []
+    }
+  },
+  {
+    "id": "tQwWfgG2LbI9AAT6D-99h",
+    "schemaId": "start-cycle-node",
+    "inputs": [],
+    "outputs": [],
+    "nodeType": "onlySource",
+    "connectedTo": {
+      "inputs": [],
+      "outputs": [
+        {
+          "target": "Ou6NH_fx9xaFiM_2AQyUO",
+          "sourceHandle": {
+            "nodeId": "tQwWfgG2LbI9AAT6D-99h"
+          },
+          "targetHandle": {
+            "nodeId": "Ou6NH_fx9xaFiM_2AQyUO"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "tznLrHydynUwNttwdKAD5",
+    "schemaId": "filter-node",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": "DeteccionesV01"
+      },
+      {
+        "inputId": "input-filter-type",
+        "type": "value",
+        "value": "clase"
+      },
+      {
+        "inputId": "input-operator",
+        "type": "value",
+        "value": "=="
+      },
+      {
+        "inputId": "input-value",
+        "type": "value",
+        "value": "Persona"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-filtered-detections-pass",
+        "type": "value",
+        "value": "det1"
+      },
+      {
+        "outputId": "output-filtered-detections-fail",
+        "type": "value",
+        "value": "det1_no"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "fmIO3puMcnH9L-RwwzK39",
+          "sourceHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39-1"
+          },
+          "targetHandle": {
+            "nodeId": "tznLrHydynUwNttwdKAD5"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "BVvo-r7xnImcIQNukmxVA",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "BVvo-r7xnImcIQNukmxVA"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "XreAA_vo6UhO1TqD9No3n",
+    "schemaId": "filter-node",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": "DeteccionesV02"
+      },
+      {
+        "inputId": "input-filter-type",
+        "type": "value",
+        "value": "clase"
+      },
+      {
+        "inputId": "input-operator",
+        "type": "value",
+        "value": "=="
+      },
+      {
+        "inputId": "input-value",
+        "type": "value",
+        "value": "coche"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-filtered-detections-pass",
+        "type": "value",
+        "value": "det2"
+      },
+      {
+        "outputId": "output-filtered-detections-fail",
+        "type": "value",
+        "value": "det2_no"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "fmIO3puMcnH9L-RwwzK39",
+          "sourceHandle": {
+            "nodeId": "fmIO3puMcnH9L-RwwzK39-1"
+          },
+          "targetHandle": {
+            "nodeId": "XreAA_vo6UhO1TqD9No3n"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "yuhbpsUAzSxahJ5b-g7LB",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections2"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "yuhbpsUAzSxahJ5b-g7LB",
+    "schemaId": "distance-node",
+    "inputs": [
+      {
+        "inputId": "input-detections1",
+        "type": "value",
+        "value": ""
+      },
+      {
+        "inputId": "input-operator",
+        "type": "value",
+        "value": "<"
+      },
+      {
+        "inputId": "input-detections2",
+        "type": "value",
+        "value": ""
+      },
+      {
+        "inputId": "input-distance-threshold",
+        "type": "value",
+        "value": "4"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-primary-detections-compliant",
+        "type": "value",
+        "value": "det41"
+      },
+      {
+        "outputId": "output-primary-detections-noncompliant",
+        "type": "value",
+        "value": "det41_no"
+      },
+      {
+        "outputId": "output-secondary-detections-compliant",
+        "type": "value",
+        "value": "det_42"
+      },
+      {
+        "outputId": "output-secondary-detections-noncompliant",
+        "type": "value",
+        "value": "det_42_no"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "XreAA_vo6UhO1TqD9No3n",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections2"
+          }
+        },
+        {
+          "source": "BVvo-r7xnImcIQNukmxVA",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-fail"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections1"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "OP7pQNSoHv4X26pigM0_t",
+          "sourceHandle": {
+            "nodeId": "output-primary-detections-compliant"
+          },
+          "targetHandle": {
+            "nodeId": "OP7pQNSoHv4X26pigM0_t-entry-1"
+          }
+        }
+      ]
+    }
+  }
+]

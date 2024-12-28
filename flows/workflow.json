@@ -1,0 +1,321 @@
+[
+  {
+    "id": "18uQmbgHK_bSJeoOk4t-N",
+    "schemaId": "alarm-manager",
+    "nodeName": "alarm-manager-6",
+    "inputs": [
+      {
+        "inputId": "alarm-selection",
+        "type": "value",
+        "value": "alarma_fuego"
+      },
+      {
+        "inputId": "cooldown",
+        "type": "value",
+        "value": "3"
+      },
+      {
+        "inputId": "sensitivity",
+        "type": "value",
+        "value": "23"
+      }
+    ],
+    "outputs": [],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "WVOSg_nGK-pNCveO409pC",
+          "sourceHandle": {
+            "nodeId": "output-alarm-trigger"
+          },
+          "targetHandle": {
+            "nodeId": "alarm-selection"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "LGGNrUGwfH0hBALCp5lop",
+          "sourceHandle": {
+            "nodeId": "18uQmbgHK_bSJeoOk4t-N-output-1"
+          },
+          "targetHandle": {
+            "nodeId": "notification-type"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "1X5AYvGcQ6IscN7g1QQMI",
+    "schemaId": "filter-node",
+    "nodeName": "filter-node-4",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": "ai-node-3-camera_detections"
+      },
+      {
+        "inputId": "input-filter-type",
+        "type": "value",
+        "value": "clase"
+      },
+      {
+        "inputId": "input-operator",
+        "type": "value",
+        "value": "=="
+      },
+      {
+        "inputId": "input-value",
+        "type": "value",
+        "value": "persona"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-filtered-detections-pass",
+        "type": "value",
+        "value": "filter-node-4-output-filtered-detections-pass"
+      },
+      {
+        "outputId": "output-filtered-detections-fail",
+        "type": "value",
+        "value": "filter-node-4-output-filtered-detections-fail"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "HmqswRo8MT9u3sDogYiiC",
+          "sourceHandle": {
+            "nodeId": "camera_detections"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "WVOSg_nGK-pNCveO409pC",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "input-1"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "FyyVHNJZeLUMIH3Es-h_k",
+    "schemaId": "start-cycle-node",
+    "nodeName": "start-cycle-node-1",
+    "inputs": [],
+    "outputs": [],
+    "nodeType": "onlySource",
+    "connectedTo": {
+      "inputs": [],
+      "outputs": [
+        {
+          "target": "yhtLPhFYEDOkfObJlH9L7",
+          "sourceHandle": {
+            "nodeId": "FyyVHNJZeLUMIH3Es-h_k"
+          },
+          "targetHandle": {
+            "nodeId": "input-camera-name"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "HmqswRo8MT9u3sDogYiiC",
+    "schemaId": "ai-node",
+    "nodeName": "ai-node-3",
+    "inputs": [
+      {
+        "inputId": "camera-name",
+        "type": "value",
+        "value": "camera-node-2-output-image-name"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "camera_detections",
+        "type": "value",
+        "value": "ai-node-3-camera_detections"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "yhtLPhFYEDOkfObJlH9L7",
+          "sourceHandle": {
+            "nodeId": "output-image-name"
+          },
+          "targetHandle": {
+            "nodeId": "camera-name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "1X5AYvGcQ6IscN7g1QQMI",
+          "sourceHandle": {
+            "nodeId": "camera_detections"
+          },
+          "targetHandle": {
+            "nodeId": "input-detections"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "LGGNrUGwfH0hBALCp5lop",
+    "schemaId": "notification-off-site",
+    "nodeName": "notification-off-site-7",
+    "inputs": [
+      {
+        "inputId": "notification-type",
+        "type": "value",
+        "value": "safe"
+      },
+      {
+        "inputId": "telegram-phone",
+        "type": "value",
+        "value": "605441602"
+      },
+      {
+        "inputId": "telegram-message",
+        "type": "value",
+        "value": "alertaaaaaaa"
+      },
+      {
+        "inputId": "telegram-image",
+        "type": "value",
+        "value": "imagen_1"
+      }
+    ],
+    "outputs": [],
+    "nodeType": "onlyTarget",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "18uQmbgHK_bSJeoOk4t-N",
+          "sourceHandle": {
+            "nodeId": "18uQmbgHK_bSJeoOk4t-N-output-1"
+          },
+          "targetHandle": {
+            "nodeId": "notification-type"
+          }
+        }
+      ],
+      "outputs": []
+    }
+  },
+  {
+    "id": "WVOSg_nGK-pNCveO409pC",
+    "schemaId": "count-node",
+    "nodeName": "count-node-5",
+    "inputs": [
+      {
+        "inputId": "input-detections",
+        "type": "value",
+        "value": ""
+      },
+      {
+        "inputId": "input-comparator",
+        "type": "value",
+        "value": ">"
+      },
+      {
+        "inputId": "input-threshold",
+        "type": "value",
+        "value": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-alarm-trigger",
+        "type": "value",
+        "value": "count-node-5-output-alarm-trigger"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "1X5AYvGcQ6IscN7g1QQMI",
+          "sourceHandle": {
+            "nodeId": "output-filtered-detections-pass"
+          },
+          "targetHandle": {
+            "nodeId": "input-1"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "18uQmbgHK_bSJeoOk4t-N",
+          "sourceHandle": {
+            "nodeId": "output-alarm-trigger"
+          },
+          "targetHandle": {
+            "nodeId": "alarm-selection"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "yhtLPhFYEDOkfObJlH9L7",
+    "schemaId": "camera-node",
+    "nodeName": "camera-node-2",
+    "inputs": [
+      {
+        "inputId": "input-camera-name",
+        "type": "value",
+        "value": "camera_lateral"
+      }
+    ],
+    "outputs": [
+      {
+        "outputId": "output-image-name",
+        "type": "value",
+        "value": "camera-node-2-output-image-name"
+      }
+    ],
+    "nodeType": "regularNode",
+    "connectedTo": {
+      "inputs": [
+        {
+          "source": "FyyVHNJZeLUMIH3Es-h_k",
+          "sourceHandle": {
+            "nodeId": "FyyVHNJZeLUMIH3Es-h_k"
+          },
+          "targetHandle": {
+            "nodeId": "input-camera-name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "target": "HmqswRo8MT9u3sDogYiiC",
+          "sourceHandle": {
+            "nodeId": "output-image-name"
+          },
+          "targetHandle": {
+            "nodeId": "camera-name"
+          }
+        }
+      ]
+    }
+  }
+]
