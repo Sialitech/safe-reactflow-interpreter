@@ -32,9 +32,9 @@ Key features shown in the visualization:
 
 
 ## TODO:
-- Interpretar el json con python.
-- Construir el DAG con python y gestionar asi el orden de ejecucion e inputs y outputs
-- Gestionar la concurrencia de ramas del DAG.
+- ✅ Interpretar el json con python.
+- ✅ Construir el DAG con python y gestionar asi el orden de ejecucion e inputs y outputs
+- ✅ Gestionar la concurrencia de ramas del DAG.
 - Definir funciones no mockeadas con parametros, inputs y outputs razonbales.
 - Poner prints de orden de ejecucion con time sleeps para ver que va todo bien.
 - Terminar las funciones bien y control de errores.
