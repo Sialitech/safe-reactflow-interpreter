@@ -30,3 +30,15 @@ Key features shown in the visualization:
 - Node labels indicate the operation type (schema ID)
 
 
+
+## TODO:
+- Interpretar el json con python.
+- Construir el DAG con python y gestionar asi el orden de ejecucion e inputs y outputs
+- Gestionar la concurrencia de ramas del DAG.
+- Definir funciones no mockeadas con parametros, inputs y outputs razonbales.
+- Poner prints de orden de ejecucion con time sleeps para ver que va todo bien.
+- Terminar las funciones bien y control de errores.
+- Sofisticar las funciones de sensibildiad distancia y control de errores.
+- Validar para varios worflows posibles.
+- Mirar de hacer eficientes las peticiones a la API.
+- Dockerizar y asegurar que no se detenga nunca.
