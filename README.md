@@ -4,8 +4,16 @@ This repo aims to build a logic workflow from a json file. It interprets the jso
 
 ## Usage:
 
+1. Install the required dependencies:
+``` 
+pip install -r requirements.txt
+```
+2. Place the json file in the `workflows/` folder and check the json path in `main.py` file.
 
-
+3. Run the script:
+```
+python main.py
+```
 
 ### Example DAG Visualization
 
